@@ -1,2 +1,3 @@
-# dataviz
-Misc. things I've made 
+# dataviz-portfolio
+
+Showcase of data visualizations I've made
