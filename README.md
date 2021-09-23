@@ -32,7 +32,7 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 *** 
 
-### ### [2021-04](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC): National Monitoring Conference Talk Figures
+### [2021-04](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC): National Monitoring Conference Talk Figures
 
 ![./figures/2021_NMC/figure1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure1.png)
 
