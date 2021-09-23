@@ -47,7 +47,7 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 ***
 
-### [2019-11]((https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/): NALMS Conference Shiny App Examples
+### [2019-11](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/): NALMS Conference Shiny App Examples
 
 ![./figures/2019_NALMS/app1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/app1.png)
 
