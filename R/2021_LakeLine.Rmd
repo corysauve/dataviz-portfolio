@@ -1,0 +1,100 @@
+---
+title: "2021_LakeLine"
+author: "Cory Sauve"
+date: "9/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Libs 
+```{r import-libs, message=FALSE, warning=FALSE}
+library(here)
+library(readr)
+library(magrittr)
+library(magick)
+library(ggplot2)
+library(dplyr)
+library(forcats)
+```
+
+## Data Import 
+```{r data-import, message=FALSE, warning=FALSE}
+fig2_data <- read_csv(here("data/2021_LakeLine", "fig2_data.csv"))
+fig3_data <- read_csv(here("data/2021_LakeLine", "fig3_data.csv"))
+base_map <- image_read(here("data/2021_LakeLine", "cedar_lake.png"))
+```
+
+## Figure 1 - Minneapolis Chain of Lakes Regional Park, MN
+```{r fig1-map}
+fig1 <- image_ggplot(base_map) + 
+  annotate("text", x = 2900, y = 3150, label = "Lake of the Isles", fontface = "bold", size = 4, color = "#434c7d") +
+  annotate("text", x = 1025, y = 3450, label = "Cedar Lake", fontface = "bold", size = 4, color = "#434c7d") +
+  annotate("text", x = 2780, y = 2100, label = "Bde Maka Ska", fontface = "bold", size = 4, color = "#434c7d") +
+  annotate("text", x = 1705, y = 710, label = "Lake Harriet", fontface = "bold", size = 4, color = "#434c7d") +
+  annotate("text", x = 1775, y = 3875, label = "Brownie Lake", fontface = "bold", size = 4, color = "#434c7d") +
+  labs(title = "Minneapolis Chain of Lakes Regional Park, MN", 
+       caption = "Visualization: Cory Sauve (2021)") +
+  theme(plot.title = element_text(size = 20, vjust = 1.5),
+        plot.caption = element_text(size = 8))
+
+ggsave(fig1, filename = here("figures/2021_LakeLine", "figure1.jpg"), dpi = 600, height = 7, width = 7, type = "cairo")
+```
+
+## Figure 2 - Average Springtime Algal Concentrations
+```{r fig2-springtime}
+group_colors <- c("Diatoms" = "#5E3C37", "Greens" = "#565F41", "Chrysophytes" = "#EAAE37", "Cryptomonads" = "#B54555", 
+            "Cyanobacteria" = "#4A515E", "Euglenoids" = "#95AB63", "Dinoflagellates" = "#EBD8AE")
+
+fig2 <- fig2_data %>% 
+  ggplot(aes(x = year, y = relative_cells_mL, fill = division_common)) + 
+  geom_col(position = "stack", color = "white", size = 0.5) +
+  scale_x_continuous("") +
+  scale_y_continuous("PRA Relative Biovolume (%)", labels = scales::percent) +
+  ggtitle("Average Springtime Algal Concentrations", 
+          subtitle = "Cedar Lake, Minneapolis Chain of Lakes Regional Park") +
+  labs(caption = "Visualization: Cory Sauve (2021)") +
+  scale_fill_manual(values = group_colors) +
+  theme(legend.position = "bottom", 
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12),
+        panel.background = element_blank(), 
+        plot.title = element_text(size = 20), 
+        plot.subtitle = element_text(size = 16),
+        plot.caption = element_text(size = 8),
+        axis.ticks = element_blank(), 
+        axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 12))
+
+ggsave(fig2, filename = here("figures/2021_LakeLine", "figure2.jpg"), dpi = 600, width = 8, height = 7, type = "cairo")
+```
+
+## Figure 3 - Fall HCB Dominance 
+```{r fig3-fall}
+fig3 <- fig3_data %>% 
+  mutate(hab_taxa = fct_reorder(hab_taxa, relative_cells_mL)) %>% 
+  ggplot(aes(x = year, y = relative_cells_mL, fill = hab_taxa)) + 
+  geom_col(position = "stack", color = "white", size = 0.5) + 
+  geom_segment(aes(x = 2004.4, xend = 2021, y  = 0.5, yend = 0.5), linetype = "dashed", size = 1.25) + 
+  coord_cartesian(xlim = c(2004.9, 2023.8), clip = 'off') +
+  scale_y_continuous("PRA Relative Biovolume (%)", labels = scales::percent) +
+  scale_x_continuous("") +
+  scale_fill_manual(values = c("grey", "#565F41")) +
+  annotate("text", x = 2021, y = .80, label = "Non-HCB", fontface = "bold", size = 6, hjust = 0, color = "grey") +
+  annotate("text", x = 2021, y = 0.20, label = "HCB", fontface = "bold", size = 6, hjust = 0, color = "#565F41") +
+  ggtitle("Fall HCB Dominance", 
+          subtitle = "Cedar Lake, Minneapolis Chain of Lakes Regional Park") +
+  labs(caption = "Visualization: Cory Sauve (2021)") +
+  theme(legend.position = "none", 
+        panel.background = element_blank(), 
+        plot.title = element_text(size = 20), 
+        plot.subtitle = element_text(size = 16),
+        plot.caption = element_text(size = 8),
+        axis.ticks = element_blank(), 
+        axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 12))
+
+ggsave(fig3, filename = here("figures/2021_LakeLine", "figure3.jpg"), dpi = 600, width = 7, height = 6, type = "cairo")
+```
