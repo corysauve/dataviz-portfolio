@@ -1,5 +1,5 @@
 <h1 style="font-weight:normal" align="center">
-  &nbsp;#dataviz-portfolio&nbsp;
+  &nbsp;dataviz-portfolio&nbsp;
 </h1>
 
 <br>
