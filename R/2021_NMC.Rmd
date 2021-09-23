@@ -1,0 +1,352 @@
+---
+title: "2021 NMC Figures"
+author: "Cory Sauve"
+date: "9/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose 
+
+This notebook contains code to reproduce figures from the 2021 National Monitoring Conference talk, *Imaging Flow Cytometry for Algal Monitoring and Classification*.
+
+## Libs 
+```{r libs}
+library(tidyverse)
+library(patchwork)
+library(here)
+library(ggchicklet)
+library(ggforce)
+```
+
+## Data 
+```{r import=data}
+carryover_data <- read_csv(here("data/2021_NMC", "carryover_data.csv"))
+prefilter_data <- read_csv(here("data/2021_NMC", "prefilter_data.csv"))
+utah_data <- read_csv(here("data/2021_NMC", "utah_data.csv"))
+in_data <- read_csv(here("data/2021_NMC", "indiana_data.csv"))
+```
+
+## Figure 1 - Pre-filter Efficiency 
+```{r fig1-prefilter}
+prefilter_micro <- prefilter_data %>% 
+  filter(genus == "Microcystis") %>% 
+  mutate(count_type = fct_reorder(count_type, -average_loss)) %>% 
+  ggplot(aes(x = reorder(count_type, average_loss), y = average_loss, color = type)) + 
+  geom_errorbar(aes(ymin = average_loss - deviation, ymax = average_loss + deviation, color = type), width = 0.1, size = 0.5) +
+  geom_point(size = 2) +
+  scale_y_continuous(name = "Average Percent Lost", breaks = seq(0, 10, 2)) +
+  scale_x_discrete(name = "") +
+  scale_color_manual(values = c("#F17236", "#769370")) +
+  coord_flip(ylim = c(0, 10)) +
+  ggtitle("Microcystis") +
+  theme(
+    axis.text = element_text(size = 10),
+    axis.title.x = element_text(size= 10),
+    axis.title.y = element_text(size = 10),
+    panel.grid = element_blank(), 
+    panel.background = element_blank(), 
+    axis.line = element_line(),
+    axis.line.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.title = element_text(size = 10, face = "italic"),
+    plot.background = element_blank(),
+    plot.subtitle = element_text(size = 10, face = "italic"),
+    legend.position = "none", 
+  )
+
+prefilter_cera <- prefilter_data %>% 
+  filter(genus == "Ceratium") %>% 
+  ggplot(aes(x = count_type, y = average_loss, color = genus)) + 
+  geom_errorbar(aes(ymin = average_loss - deviation, ymax = average_loss + deviation, color = genus), width = 0.1, size = 0.5) +
+  geom_point(size = 2) +
+  scale_y_continuous(name = "", breaks = seq(0, 10, 2)) +
+  scale_x_discrete(name = "") +
+  scale_color_manual(values = c("#769370")) +
+  coord_flip(ylim = c(0, 10)) +
+  ggtitle("Ceratium") +
+  theme(
+    axis.text = element_text(size = 10),
+    axis.title.x = element_text(size= 10),
+    panel.grid = element_blank(), 
+    panel.background = element_blank(), 
+    axis.line = element_line(),
+    axis.line.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.title = element_text(size = 10, face = "italic"),
+    plot.background = element_blank(),
+    plot.subtitle = element_text(size = 10, face = "italic"),
+    legend.position = "none", 
+  )
+
+prefilter_plank <- prefilter_data %>% 
+  filter(genus == "Planktothrix") %>% 
+  ggplot(aes(x = count_type, y = average_loss, color = genus)) + 
+  geom_errorbar(aes(ymin = average_loss - deviation, ymax = average_loss + deviation, color = genus), width = 0.1, size = 0.5) +
+  geom_point(size = 2) +
+  scale_y_continuous(name = "", breaks = seq(0, 10, 2)) +
+  scale_x_discrete(name = "") +
+  scale_color_manual(values = c("#769370")) +
+  coord_flip(ylim = c(0, 10)) +
+  labs(title = "Planktothrix") +
+  theme(
+    plot.title = element_text(face = "italic", size = 10),
+    axis.text.y = element_blank(),
+    axis.text = element_text(size = 10),
+    axis.title.x = element_text(size= 10),
+    panel.grid = element_blank(), 
+    panel.background = element_blank(), 
+    axis.line = element_line(),
+    axis.line.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.background = element_blank(),
+    legend.position = "none", 
+    plot.title.position = "plot"
+  )
+
+fig1_subplot <- prefilter_cera + prefilter_plank 
+fig1 <- fig1_subplot / prefilter_micro + 
+  plot_annotation(title = "Pre-filter Efficiency", 
+                  caption = "Visualization: Cory Sauve (2021)") & 
+  theme(plot.title = element_text(size = 20))
+
+ggsave(fig1, file = here("figures/2021_NMC", "figure1.png"), dpi = 300, width = 6, height = 4, type = "cairo")
+```
+
+## Figure 2 - Carryover Between Samples 
+```{r fig2-carryover}
+fig2 <- carryover_data %>% 
+  mutate(carryover = carryover / 100) %>% 
+  ggplot(aes(x = sample, y = carryover)) +
+  geom_col(fill = "#769370", color = "black", size = 0.5) + 
+  facet_wrap(~genus, nrow = 2) +
+  scale_y_continuous(name = "Average Carryover Relative to Sample", breaks = seq(0, 1, 0.1), 
+                     labels = scales::label_percent(accuracy = 1L)) +
+  scale_x_continuous(name = "Initial Sample (0) and Subsequent Rinses", breaks = seq(0, 20, 5)) +
+  labs(title = "Carryover Between Samples", 
+       caption = "Visualization: Cory Sauve (2021)") +
+  theme(
+    axis.title.x = element_text(vjust = 0, size = 10),
+    axis.title.y = element_text(vjust = 2, size = 10), 
+    axis.text = element_text(size = 10),
+    axis.ticks = element_blank(),
+    axis.line = element_blank(), 
+    panel.grid = element_blank(), 
+    panel.background = element_blank(), 
+    plot.title = element_text(size = 18, hjust = -0.15),
+    plot.subtitle = element_text(size = 10, face = "italic"),
+    strip.background = element_blank(),
+    strip.text = element_text(size = 10, face = "italic")
+  )  
+
+ggsave(fig2, file = here("figures/2021_NMC", "figure2.png"), type = "cairo", width = 7, height = 7, dpi = 300)
+```
+
+## Figure 3 Subplots - Utah Algal Assemblages 
+```{r}
+fig3a <- utah_data %>% 
+  group_by(lake_name) %>% 
+  mutate(relative_cells = round(cellsmL / sum(cellsmL) * 100, 2)) %>% 
+  select(grp:func_group, relative_biovolume, relative_cells) %>% 
+  pivot_longer(cols = 5:6, names_to = "parameter", values_to = "value") %>% 
+  mutate(parameter = ifelse(parameter == "relative_biovolume", "Relative Biovolume", "Relative Cells")) %>% 
+  filter(lake_name == "Utah Lake") %>% 
+  ggplot(aes(x = lake_name, y = value / 100, fill = taxa)) + 
+  geom_chicklet(width = 0.6, radius = grid::unit(5, "pt")) + 
+  facet_wrap(~parameter, nrow = 2) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent) +
+  guides(fill = guide_legend(nrow = 2)) +
+  scale_fill_manual(
+    values = c(
+      "Dolichospermum" = "#D58A60",
+      "Microcystis" = "#F1C646", 
+      "Planktothrix" = "#769370", 
+      "Taxa below 9um" = "#BDB2A7", 
+      "Unclassified" = "grey")
+  ) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title = element_blank(),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 20))
+
+fig3b <- utah_data %>% 
+  group_by(lake_name) %>% 
+  mutate(relative_cells = round(cellsmL / sum(cellsmL) * 100, 2)) %>% 
+  select(grp:func_group, relative_biovolume, relative_cells) %>% 
+  pivot_longer(cols = 5:6, names_to = "parameter", values_to = "value") %>% 
+  mutate(parameter = ifelse(parameter == "relative_biovolume", "Relative Biovolume", "Relative Cells")) %>% 
+  filter(lake_name == "Pineview Reservoir") %>% 
+  ggplot(aes(x = lake_name, y = value / 100, fill = taxa)) + 
+  geom_chicklet(width = 0.6, radius = grid::unit(5, "pt")) + 
+  facet_wrap(~parameter, nrow = 2) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent) +
+  guides(fill = guide_legend(nrow = 2)) +
+  scale_fill_manual(
+    values = c(
+      "Dolichospermum" = "#D58A60",
+      "Aphanizomenon (Aph.)" = "#6E687E", 
+      "Woronichinia" = "#682C37", 
+      "Taxa below 9um" = "#BDB2A7", 
+      "Unclassified" = "grey")
+  ) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title = element_blank(),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 20))
+
+fig3c <- utah_data %>% 
+  group_by(lake_name) %>% 
+  mutate(relative_cells = round(cellsmL / sum(cellsmL) * 100, 2)) %>% 
+  select(grp:func_group, relative_biovolume, relative_cells) %>% 
+  pivot_longer(cols = 5:6, names_to = "parameter", values_to = "value") %>% 
+  mutate(parameter = ifelse(parameter == "relative_biovolume", "Relative Biovolume", "Relative Cells")) %>% 
+  filter(lake_name == "Otter Creek Reservoir") %>% 
+  ggplot(aes(x = lake_name, y = value / 100, fill = taxa)) + 
+  geom_chicklet(width = 0.6, radius = grid::unit(5, "pt")) + 
+  guides(fill = guide_legend(nrow = 2)) +
+  facet_wrap(~parameter, nrow = 2) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(
+    values = c(
+      "Dolichospermum" = "#D58A60",
+      "Aphanizomenon (Aph.)" = "#6E687E", 
+      "Woronchinia" = "#682C37", 
+      "Taxa below 9um" = "#BDB2A7", 
+      "Unclassified" = "grey", 
+      "Aph. gracile-Chrys." = "#979461")
+  ) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title = element_blank(),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),        
+        legend.text = element_text(size = 20))
+```
+
+## Figure 4 Subplots - Indiana Algal Assemblages 
+```{r}
+func_colors <- c(
+  "HAB" = "#6BBAE5",
+  "TO" = "#B4D7EA", 
+  "BG" = "#305366", 
+  "CER" = "#B4674E",
+  "CP" = "#CD5733", 
+  "DY" = "#F1C646", 
+  "E" = "#77D1A1", 
+  "G" = "#238451", 
+  "M" = "#8A8179",
+  "U" = "#BDB0A6"
+)
+
+levels <- c("HAB", "TO", "BG", "CER", "CP", "DY", "E", "G", "M", "U")
+
+levels_rev = rev.default(levels)
+
+fig4a <- in_data %>% 
+  filter(lake_type == "SML" & !System %in% c("Dogwood", "Moss", "Duck")) %>% 
+  filter(!FunctionalGroup == "EXCLUDE") %>% 
+  mutate(System = ifelse(System == "Long (Hillenbrand)", "Long", System),
+         FunctionalGroup = fct_relevel(FunctionalGroup, levels_rev)) %>% 
+  ggplot(aes(x = System, y = Relative_Cells_per_mL , fill = FunctionalGroup)) + 
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(name = "Relative Cells/mL", labels = scales::percent) +
+  scale_fill_manual(values = func_colors, breaks = levels) +
+  guides(fill = guide_legend(nrow = 2)) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 20))
+
+fig4b <- in_data %>% 
+  filter(lake_type == "Impoundment" & !System == "Lemon") %>%
+    filter(!FunctionalGroup == "EXCLUDE") %>% 
+  mutate(System = case_when(
+    System == "St. Joseph impoundment" ~ "St. Joseph", 
+    System == "Patoka Res." ~ "Patoka", 
+    System == "Mansfield Res (Hardin)" ~ "Mansfield", 
+    System == "Lake George (Hobart)" ~ "Lake George", 
+    System == "Knightstown (Big Blue #7)" ~ "Knightstown", 
+    System == "Bryants Creek Lake" ~ "Bryants Creek", 
+    TRUE ~ System
+  ),
+  FunctionalGroup = fct_relevel(FunctionalGroup, levels_rev)) %>% 
+  ggplot(aes(x = System, y = Relative_Cells_per_mL , fill = FunctionalGroup)) + 
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(name = "Relative Cells/mL", labels = scales::percent) +
+  scale_fill_manual(values = func_colors, breaks = levels) +
+  guides(fill = guide_legend(nrow = 2)) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 20))
+
+fig4c <- in_data %>% 
+  filter(lake_type == "Natural Lake" & !System %in% c("Wolf", "Thomas", "Silver", "Pleasant", "Pigeon", "North Twin", "Mansfield Res (Hardin)", "Hudson", "James", "Hog", "Hammond", "Green", "Goose", "Fox", "Dock", "Diamond", "Crooked", "Crane", "Center", "Oswege", "Sacrider", "Fancher", "Henderson", "Price", "Sellers", "Spectacle", "Bowen", "North Little")) %>% 
+  filter(!FunctionalGroup == "EXCLUDE") %>% 
+  mutate(System = case_when(
+    System == "Rivir (Chain of Lakes)" ~ "Rivir", 
+    TRUE ~ System
+  ), 
+    FunctionalGroup = fct_relevel(FunctionalGroup, levels_rev)) %>% 
+  ggplot(aes(x = System, y = Relative_Cells_per_mL , fill = FunctionalGroup)) + 
+  geom_col() +
+  coord_flip() +
+  scale_y_continuous(name = "Relative Cells/mL", labels = scales::percent) +
+  scale_fill_manual(values = func_colors, breaks = levels) +
+  guides(fill = guide_legend(nrow = 2)) +
+  theme(legend.position = "top", 
+        legend.title = element_blank(),
+        axis.ticks = element_blank(), 
+        strip.background = element_blank(), 
+        strip.text = element_text(hjust = 0, size = 20), 
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 20),
+        axis.text.y = element_text(size = 15),
+        axis.text.x = element_text(size = 20), 
+        panel.background = element_blank(),
+        legend.key=element_blank(),
+        legend.text = element_text(size = 20))
+```
