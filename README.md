@@ -40,4 +40,4 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 ![./figures/2021_NMC/figure3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.png)
 
-![./figures/2021_NMC/figure4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.png)
+![./figures/2021_NMC/figure4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure4.png)
