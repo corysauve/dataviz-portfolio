@@ -34,10 +34,10 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 ### ### [2021-04](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC): National Monitoring Conference Talk Figures
 
-![./figures/2021_NMC/figure1.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure1.jpg)
+![./figures/2021_NMC/figure1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure1.png)
 
-![./figures/2021_NMC/figure2.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure2.jpg)
+![./figures/2021_NMC/figure2.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure2.png)
 
-![./figures/2021_NMC/figure3.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.jpg)
+![./figures/2021_NMC/figure3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.png)
 
-![./figures/2021_NMC/figure4.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.jpg)
+![./figures/2021_NMC/figure4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.png)
