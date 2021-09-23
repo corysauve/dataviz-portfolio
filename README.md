@@ -49,10 +49,10 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 ### [2019-11]((https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/): NALMS Conference Shiny App Examples
 
-![./figures/2019_NALMS/app1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app1.png)
+![./figures/2019_NALMS/app1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/app1.png)
 
-![./figures/2019_NALMS/app2.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app2.png)
+![./figures/2019_NALMS/app2.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/app2.png)
 
-![./figures/2019_NALMS/app3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app3.png)
+![./figures/2019_NALMS/app3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/app3.png)
 
-![./figures/2019_NALMS/app4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app4.png)
+![./figures/2019_NALMS/app4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/app4.png)
