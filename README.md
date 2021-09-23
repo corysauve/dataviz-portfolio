@@ -21,7 +21,7 @@ heavily rely on the R programming language, and specifically `{ggplot2}` and the
 
 ***
 
-### [2021-09]((https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): LakeLine Data Visualizations
+### [2021-09](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): LakeLine Data Visualizations
 
 ![./figures/2021_LakeLine/figure1.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/figure1.jpg)
 
