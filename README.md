@@ -5,7 +5,7 @@
 <br>
 
 Showcase of data visualizations I've made for various projects. Most visualizations 
-heavily rely on the R programming language, and specifically `{ggplot2}` and the `{tidyverse}` ecosystem. 
+heavily rely on the R programming language, specifically `{ggplot2}` and the `{tidyverse}` ecosystem. 
 
 <br>
 
