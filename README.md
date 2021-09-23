@@ -16,6 +16,9 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 * **2021**
   - 2021-09: [LakeLine Data Visualizations](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/)
   - 2021-04: [National Monitoring Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/)
+
+* **2019**
+  - 2019-11: [NALMS Conference Shiny App Examples](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/)
 <!-- tocstop -->
 
 </details>
@@ -41,3 +44,15 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 ![./figures/2021_NMC/figure3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure3.png)
 
 ![./figures/2021_NMC/figure4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/figure4.png)
+
+***
+
+### [2019-11]((https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/): NALMS Conference Shiny App Examples
+
+![./figures/2019_NALMS/app1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app1.png)
+
+![./figures/2019_NALMS/app2.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app2.png)
+
+![./figures/2019_NALMS/app3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app3.png)
+
+![./figures/2019_NALMS/app4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/app4.png)
