@@ -10,7 +10,7 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 <br>
 
 <details>
-  <summary>Visualizations in chronological order (click to expand)</summary>
+  <summary>Visualization List (click to expand)</summary>
   
 <!-- toc -->
 * **2021**
