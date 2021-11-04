@@ -14,7 +14,7 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
   
 <!-- toc -->
 * **2021**
-  - 2021-11: [NALMS Conference Talk Figures - TBD]
+  - 2021-11: NALMS Conference Talk Figures - TBD
   - 2021-09: [LakeLine Data Visualizations](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/)
   - 2021-04: [National Monitoring Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/)
 
