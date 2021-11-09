@@ -28,23 +28,23 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 
 ### [2021-11](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): NALMS 2021 Talk Figures
 
-![./figures/2021_NALMS/figure1.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure1.jpg)
+![./figures/2021_NALMS/figure1.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure1.png)
 
-![./figures/2021_NALMS/figure2.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure2.jpg)
+![./figures/2021_NALMS/figure2.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure2.png)
 
-![./figures/2021_NALMS/figure3.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure3.jpg)
+![./figures/2021_NALMS/figure3.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure3.png)
 
-![./figures/2021_NALMS/figure4.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure4.jpg)
+![./figures/2021_NALMS/figure4.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure4.png)
 
-![./figures/2021_NALMS/figure5.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure5.jpg)
+![./figures/2021_NALMS/figure5.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure5.png)
 
-![./figures/2021_NALMS/figure6.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure6.jpg)
+![./figures/2021_NALMS/figure6.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure6.png)
 
-![./figures/2021_NALMS/figure7.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure7.jpg)
+![./figures/2021_NALMS/figure7.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure7.png)
 
-![./figures/2021_NALMS/figure8.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure8.jpg)
+![./figures/2021_NALMS/figure8.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure8.png)
 
-![./figures/2021_NALMS/figure9.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure9.jpg)
+![./figures/2021_NALMS/figure9.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure9.png)
 
 ### [2021-09](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): LakeLine Data Visualizations
 
