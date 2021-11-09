@@ -14,7 +14,7 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
   
 <!-- toc -->
 * **2021**
-  - 2021-11: NALMS Conference Talk Figures - TBD
+  - 2021-11: [NALMS Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/)
   - 2021-09: [LakeLine Data Visualizations](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/)
   - 2021-04: [National Monitoring Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/)
 
@@ -25,6 +25,26 @@ heavily rely on the R programming language, specifically `{ggplot2}` and the `{t
 </details>
 
 ***
+
+### [2021-11](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): NALMS 2021 Talk Figures
+
+![./figures/2021_NALMS/figure1.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure1.jpg)
+
+![./figures/2021_NALMS/figure2.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure2.jpg)
+
+![./figures/2021_NALMS/figure3.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure3.jpg)
+
+![./figures/2021_NALMS/figure4.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure4.jpg)
+
+![./figures/2021_NALMS/figure5.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure5.jpg)
+
+![./figures/2021_NALMS/figure6.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure6.jpg)
+
+![./figures/2021_NALMS/figure7.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure7.jpg)
+
+![./figures/2021_NALMS/figure8.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure8.jpg)
+
+![./figures/2021_NALMS/figure9.jpg](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/figure9.jpg)
 
 ### [2021-09](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): LakeLine Data Visualizations
 
