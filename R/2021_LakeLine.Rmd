@@ -1,5 +1,5 @@
 ---
-title: "2021_LakeLine"
+title: "2021 LakeLine Figure Code"
 author: "Cory Sauve"
 date: "9/23/2021"
 output: html_document
@@ -8,6 +8,10 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Purpose 
+
+This notebook contains code to generate similar figures published in the North American Lake Management Society's (NALMS) *LakeLine Magazine*.
 
 ## Libs 
 ```{r import-libs, message=FALSE, warning=FALSE}
