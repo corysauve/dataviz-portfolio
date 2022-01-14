@@ -4,29 +4,27 @@
 
 <br>
 
-Showcase of data visualizations I've made for various projects. Most visualizations 
-heavily rely on the R programming language, specifically `{ggplot2}` and the `{tidyverse}` ecosystem. 
+Showcase of data visualizations I've made for various projects.
 
 <br>
-
-<details>
-  <summary>Visualization List (click to expand)</summary>
-  
-<!-- toc -->
-* **2021**
-  - 2021-11: [NALMS Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/)
-  - 2021-09: [LakeLine Data Visualizations](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/)
-  - 2021-04: [National Monitoring Conference Talk Figures](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NMC/)
-
-* **2019**
-  - 2019-11: [NALMS Conference Shiny App Examples](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2019_NALMS/)
-<!-- tocstop -->
-
-</details>
 
 ***
 
 ### [2021-11](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS): NALMS 2021 Talk Figures
+
+**Talk Abstract**
+
+Numerous sampling and analytical methods exist to assess ecological status and to monitor harmful cyanobacterial 
+blooms (HCBs) in freshwater systems. Imaging flow cytometry presents a powerful tool for assessing phytoplankton 
+assemblages as it reduces processing time when compared to manual counts while maintaining an intermediate level 
+of taxonomic detail. This increased capacity and reduced processing time makes flow cytometry an effective method 
+for HCB monitoring and large-scale ecological assessment. This presentation will compare manual counts and results 
+from the Imaging Flow Cytobot (IFCB) for two projects in New York. Preserved and live samples from two lakes in 
+the Finger Lakes region and preserved samples from one lake in the Adirondack region were included in the analysis, 
+with 22 and 20 sampling events in each region, respectively. Each sample was analyzed using both manual counts 
+and the IFCB. Comparisons between the manual and IFCB counts are analyzed using multidimensional scaling, 
+specifically focusing on differences between functional groups, species classes, and critical water indicators such as 
+HCB species. The differences between live and preserved samples are also compared.
 
 ![./figures/2021_NALMS/nalms_2021_figures.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_NALMS/nalms_2021_figures.png)
 
