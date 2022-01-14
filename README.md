@@ -30,7 +30,7 @@ HCB species. The differences between live and preserved samples are also compare
 
 *** 
 
-### [2021-09](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): LakeLine Data Visualizations
+### [2021-09](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine): Figures for the Fall 2021 LakeLine article, *A Take of Two Species*; Volume 41, No. 3, pg 8
 
 ![./figures/2021_LakeLine/lakeline_2021_figures.png](https://github.com/corysauve/dataviz-portfolio/blob/main/figures/2021_LakeLine/lakeline_2021_figures.png)
 
